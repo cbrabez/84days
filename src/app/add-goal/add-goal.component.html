@@ -1,0 +1,9 @@
+<form [formGroup]="goalForm" (submit)="onSubmit()">
+  <mat-form-field class="form-field" appearance="fill">
+    <mat-label>Fill form field</mat-label>
+    <input matInput formControlName="title" placeholder="title" required>
+  </mat-form-field>
+  <div>
+    <button mat-raised-button color="primary" type="submit">Log In</button>
+  </div>
+</form>

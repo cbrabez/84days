@@ -1,0 +1,24 @@
+<div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+  <div fxFlex="60%">
+    <mat-card class="goal-card" *ngFor="let goal of goals">
+      <mat-card-header>
+        <!-- <div mat-card-avatar class="example-header-image"></div> -->
+        <mat-card-title>{{goal.payload.doc.data().title}}</mat-card-title>
+        <mat-card-subtitle>01.04. - 01.07.21</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-form-field class="goal-description" appearance="fill">
+          <mat-label>Textarea</mat-label>
+          <textarea matInput #description 
+          cdkTextareaAutosize
+          cdkAutosizeMinRows="8"
+          cdkAutosizeMaxRows="25">{{goal.payload.doc.data().description}}</textarea>
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button (click)="deleteGoal(goal)">DELETE</button>
+        <button mat-button (click)="updateGoal(goal, description.value)">UPDATE</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
